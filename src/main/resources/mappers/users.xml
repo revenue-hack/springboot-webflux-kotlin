@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mappers.UserMapper">
+    <resultMap id="userResult" type="com.example.models.User">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="createdAt" column="created_at"/>
+        <result property="isDelete" column="is_delete"/>
+    </resultMap>
+    <select id="findAll" resultMap="userResult" parameterType="map">
+        select * from users where is_delete=0
+    </select>
+</mapper>

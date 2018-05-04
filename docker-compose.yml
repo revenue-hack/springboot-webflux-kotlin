@@ -1,0 +1,18 @@
+version: '3'
+services:
+  coinlog_db:
+    image: mariadb:10.3
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: example
+      MYSQL_DATABASE: example
+      MYSQL_PASSWORD: example
+    volumes:
+      - ./server/my.cnf:/etc/mysql/conf.d/my.cnf
+    container_name: example_db
+    ports:
+      - 3306:3306
+volumes:
+  example_db_store:
+    driver: local
+
