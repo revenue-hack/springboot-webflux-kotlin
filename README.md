@@ -17,3 +17,7 @@ docker-compse up -d
 ## RUN
 Application.kt run in intellij
 
+## DEMO
+```
+GET http://localhost:8080/user
+```
