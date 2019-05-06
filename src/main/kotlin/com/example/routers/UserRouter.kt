@@ -13,9 +13,16 @@ class UserRouter(private val handler: UserHandler) : Router {
     override fun route() = router {
         ("/user").nest {
             GET("") { req ->
+
                 ServerResponse.ok()
                     .contentType(MediaType.APPLICATION_JSON_UTF8)
                     .body(handler.index().toMono())
+            }
+            POST("") { req ->
+
+                ServerResponse.ok()
+                    .contentType(MediaType.APPLICATION_JSON_UTF8)
+                    .body(handler.store(req).toMono())
             }
         }
     }.filter { request, next ->
